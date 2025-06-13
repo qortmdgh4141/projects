@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RoboKeyGen: Robot Pose and Joint Angles Estimation via Diffusion-based 3D Keypoint Generation">
+  <meta name="keywords" content="Robotic Manipulation, Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboKeyGen</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <script>
+
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+
+      console.log("interactive", task)
+    
+      var our_video = document.getElementById("our-video");
+      // media/videos/supp_real_vis/static camera spdh.mp4
+      our_video.src = "media/videos/supp_real_vis/" + 
+                  task + 
+                  "_ours.mp4"
+      our_video.play();
+
+      var robopose_video = document.getElementById("robopose-video");
+      robopose_video.src = "media/videos/supp_real_vis/" + 
+                  task + 
+                  "_robopose.mp4"
+      robopose_video.play();
+
+      var spdh_video = document.getElementById("spdh-video");
+      spdh_video.src = "media/videos/supp_real_vis/" + 
+                  task + 
+                  "_spdh.mp4"
+      spdh_video.play();
+    }
+
+
+
+  </script>
+
+  <script>
+
+    function updatecrossInteractive() {
+      var task = document.getElementById("interative-cross-menu").value;
+
+
+      console.log("interactive", task)
+    
+      var our_cross_video = document.getElementById("our-cross-video");
+      // media/videos/supp_real_vis/static camera spdh.mp4
+      our_cross_video.src = "media/videos/supp_cross_camera/" + 
+                  task + 
+                  "_ours.mp4"
+      our_cross_video.play();
+
+      var spdh_cross_video = document.getElementById("spdh-cross-video");
+      spdh_cross_video.src = "media/videos/supp_cross_camera/" + 
+                  task + 
+                  "_spdh.mp4"
+      spdh_cross_video.play();
+    }
+
+
+
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInteractive();">
+<body onload="updatecrossInteractive();"></body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">RoboKeyGen: Robot Pose and Joint Angles Estimation via <br> Diffusion-based 3D Keypoint Generation</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2024.ieee-icra.org/">ICRA 2024</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://github.com/Nimolty?tab=overview&from=2024-01-01&to=2024-01-31">Yang Tian</a><sup>*,1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://jiyao06.github.io/">jiyao Zhang</a><sup>*,1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" >Guowei Huang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" >Bin Wang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" >Ping Wang</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://zsdonghao.github.io/">Hao Dong</a><sup>&#x2709;,1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>CFCS, School of CS, Peking University,</span>
+            <span class="author-block"><sup>2</sup>National Key Laboratory for Multimedia Information Processing, </span>
+            <span class="author-block"><sup>3</sup>Huawei,</span>
+            <span class="author-block"><sup>4</sup>School of Software & Microelectronics and National Engineering Research Center for Software Engineering, Peking University,</span>
+            <span class="author-block"><sup>5</sup>Chinese University of Hong Kong,</span>
+            <span class="author-block"><sup>*</sup>Equal Contribution,</span>
+            <span class="author-block"><sup>&#x2709;</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="robokeygen.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+            <!-- Arxiv Link. -->
+            <span class="link-block">
+              <a target="_blank" href=""
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file"></i>
+                </span>
+                <span>ArXiv</span>
+              </a>
+            </span>
+
+            <!-- Video Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://www.youtube.com/watch?v=oD1pSinGJqM"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+            </span>
+
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://github.com/Nimolty/RoboKeyGen/tree/main"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teaser">
+  <div class="teaser flag">
+
+    <div class="rows">
+      <h2 class="title is-3"></h2>
+      <div style="text-align: center;">
+        <img src="media/figures/Teaser.jpg" class="interpolation-image" style="width: 20%; height: 20%;"/>
+      </div>
+      <br>
+      <h2 class="subtitle has-text-centered">
+        Given <b>RGB</b> images, we aim to estimate the robot pose and joint angles.<br> 
+        We achieve this goal by decoupling it into two more tractable tasks: <b>2D keypoints detection</b> 
+        and <b>lifting 2D keypoints to 3D</b>.
+      </h2>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="demo single grasping">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_single_grasp/grasp_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo visual servoing">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/supp_visual_servoing/visual_servoing_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 class="subtitle has-text-centered">
+</br>
+  With the robot pose and joint angles predicted by <b>RoboKeyGen</b>, robots could implement downstream tasks such as <b>Visual Servoing</b> 
+  and <b>Grasping</b>.
+</h2>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Estimating robot pose and joint angles is significant in robotics, 
+            enabling applications like robot collaboration and online hand-eye calibration.
+            However, the introduction of unknown joint angles makes prediction more complex than simple robot pose estimation, 
+            due to its higher dimensionality.
+            Previous methods either regress 3D keypoints directly or utilise a render&compare strategy. 
+            These approaches often falter in terms of performance or efficiency and grapple with the cross-camera gap problem.
+            This paper presents a novel framework that bifurcates the high-dimensional prediction task into two manageable subtasks: 
+            2D keypoints detection and lifting 2D keypoints to 3D. 
+            This separation promises enhanced performance without sacrificing the efficiency innate to keypoint-based techniques.
+            A vital component of our method is the lifting of 2D keypoints to 3D keypoints. 
+            Common deterministic regression methods may falter when faced with uncertainties from 2D detection errors or self-occlusions.
+            Leveraging the robust modeling potential of diffusion models, we reframe this issue as conditional 3D keypoints generation.
+            To bolster cross-camera adaptability, we introduce the <i>Normalised Camera Coordinate Space (NCCS)</i>, 
+            ensuring alignment of estimated 2D keypoints across varying camera intrinsics.
+            Experimental results demonstrate that the proposed method outperforms the state-of-the-art render&compare method and achieves higher inference speed.
+            Furthermore, the tests accentuate our method's robust cross-camera generalisation capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+
+  <!-- Paper video. -->
+  <br>
+  <br>
+  <br>
+
+  <div class="container is-max-widescreen">
+    <div class="rows is-centered has-text-centered">
+      <div class="rows">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/oD1pSinGJqM?si=sdVF7U72z1rg8cHO"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered has-text-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">RoboKeyGen</h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <img src="media/figures/Method.jpg" class="interpolation-image" />
+        </br>
+        </br>
+          <p class="content has-text-justified">
+            The inference pipeline of RoboKeyGen.  
+            (A) Combined with the RGB image <b>I</b>, 
+            predicted segmentation mask and positional embedding prior <b>F</b>, 
+            we firstly predict 2D keypoints <b>c</b> through the detection network <b>&Psi;<sub>&omega;</sub></b>. 
+            (B) Conditioning on 2D detections, we generate 3D <b>X<sup>cam</sup></b> via the score network <b>&Phi;<sub>&zeta;</sub></b>. 
+            (C) Finally, we predict joint angles from <b>X<sup>cam</sup></b> 
+            and recover <b>X<sup>rob</sup></b> based on URDF files. 
+            We do pose fitting between <b>X<sup>cam</sup></b> and <b>X<sup>rob</sup></b> to acquire the robot pose.
+          </p>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered has-text-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Qualitative Results</h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <img src="media/figures/Visualize.jpg" class="interpolation-image" />
+        </br>
+        </br>
+        </div>
+        <div class="centered-text">
+          Visualisation results on real-world datasets. 
+            <b>Green edges</b> are ground truth while <b>red edges</b> are rendered via estimated robot pose and joint angles. <br>
+            <b>White boxes</b> highlight regions where ours  (online) performs better than RoboPose (online)
+        </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered has-text-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Real-World Visualisation</h2>
+        <p class="content has-text-justified">
+          To validate our method's superiority, here we demonstrate the visualization results on real-world data in the scene with (static / dynamics) cameras, 
+          where the robot pose remains unchanged. 
+          Green lines are connected by ground truth keypoints while the red lines are connected by predicted ones. 
+          The white margins are the edge of the mask rendered by estimated robot pose and joint angles. 
+          Since SPDH doesn't predict joint angles, we only draw ours and RoboPose's. 
+          We can easily observe our method provides a more stable and accurate prediction compared to the state-of-the-art baselines.
+        </p>
+
+
+
+        <div class="columns">
+          <div class="column has-text-centered">
+
+            Scene Options   
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu" onchange="updateInteractive()">
+              <option value="static_camera" selected="selected">static_camera</option>
+              <option value="dynamic_camera">dynamic_camera</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <p style="text-align:center;">
+              <video id="our-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/supp_real_vis/static_camera_ours.mp4" type="video/mp4">
+              </video>
+              <p style="text-align:center">
+                Ours
+              </p>
+            </p>
+          </div>
+          <div class="column has-text-centered">
+            <p style="text-align:center;">
+              <video id="robopose-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/supp_real_vis/static_camera_robopose.mp4" type="video/mp4">
+              </video>
+              <p style="text-align:center">
+                Robopose
+              </p>
+            </p>
+          </div>
+          <div class="column has-text-centered">
+            <p style="text-align:center;">
+              <video id="spdh-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/supp_real_vis/static_camera_spdh.mp4" type="video/mp4">
+              </video>
+              <p style="text-align:center">
+                SPDH
+              </p>
+            </p>
+          </div>
+          <!-- <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="spdh-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/close-drawer.mp4" type="video/mp4">
+              </video>
+            </p>
+          </div> -->
+        </div>
+        
+        
+        
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered has-text-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Cross-Camera Generalisation</h2>
+        <p class="content has-text-justified">
+          To validate our method's superiority, here we demonstrate the visualization results on real-world data in the scene with (static / dynamics) cameras, 
+          where the robot pose remains unchanged. 
+          Green lines are connected by ground truth keypoints while the red lines are connected by predicted ones. 
+          The white margins are the edge of the mask rendered by estimated robot pose and joint angles. 
+          Since SPDH doesn't predict joint angles, we only draw ours and RoboPose's. 
+          We can easily observe our method provides a more stable and accurate prediction compared to the state-of-the-art baselines.
+        </p>
+
+
+
+        <div class="columns">
+          <div class="column has-text-centered">
+
+            Scene Options   
+            <div class="select is-small is-rounded">     
+              <select id="interative-cross-menu" onchange="updatecrossInteractive()">
+              <option value="RealSense_D415" selected="selected">RealSense_D415</option>
+              <option value="Azure_Kinect">Azure_Kinect</option>
+              <!-- <option value="RealSense_D415">RealSense_D415</option> -->
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <p style="text-align:center;">
+              <video id="our-cross-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/supp_cross_camera/RealSense_D415_ours.mp4" type="video/mp4">
+              </video>
+              <p style="text-align:center">
+                Ours
+              </p>
+            </p>
+          </div>
+          <div class="column has-text-centered">
+            <p style="text-align:center;">
+              <video id="spdh-cross-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/supp_cross_camera/RealSense_D415_spdh.mp4" type="video/mp4">
+              </video>
+              <p style="text-align:center">
+                SPDH
+              </p>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/voxposer/voxposer.github.io">VoxPoser</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
