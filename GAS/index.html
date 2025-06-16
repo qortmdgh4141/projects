@@ -145,6 +145,13 @@
     <figure class="image" style="width:95%; margin:3rem auto;">
       <img src="media/figures/overview_gas.png"
            alt="Trajectory stitching illustration" style="width:100%;">
+    
+      <figcaption class="has-text-centered" style="margin-top: 1rem; font-size: 17px; color: #555;">
+        (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset. <br>
+        (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric. <br>
+        (3) A TD-based subgoal-conditioned low-level policy is trained using all states. <br>
+        (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
+      </figcaption>
     </figure>
 
     <!-- 본문 bullet list (동그라미, Abstract와 동일한 글꼴 크기) -->
