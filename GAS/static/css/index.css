@@ -80,7 +80,8 @@ body {
 }
 
 .publication-authors a {
-   color: hsl(121, 100%, 36%) !important;
+  color: #7851A9 !important;  /* RoyalPurple */
+/*    color: hsl(121, 100%, 36%) !important; */
 }
 
 .conference-authors a {
