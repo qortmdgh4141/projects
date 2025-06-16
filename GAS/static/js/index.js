@@ -1,3 +1,4 @@
+/*
 window.HELP_IMPROVE_VIDEOJS = false;
 
 var INTERP_BASE = "https://homes.cs.washington.edu/~kpar/nerfies/interpolation/stacked";
@@ -71,4 +72,4 @@ $(document).ready(function() {
     document.getElementById("single-task-result-video").playbackRate = 2.0;
     document.getElementById("multi-task-result-video").playbackRate = 2.0;
 })
-
+*/
