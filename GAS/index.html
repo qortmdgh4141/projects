@@ -147,9 +147,9 @@
            alt="Trajectory stitching illustration" style="width:100%;">
     
       <figcaption class="has-text-centered" style="margin-top: 1rem; font-size: 17px; color: #555;">
-        (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset. <br>
-        (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric. <br>
-        (3) A TD-based subgoal-conditioned low-level policy is trained using all states. <br>
+        (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.
+        (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.
+        (3) A TD-based subgoal-conditioned low-level policy is trained using all states.
         (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
       </figcaption>
     </figure>
@@ -157,10 +157,7 @@
     <!-- 본문 bullet list (동그라미, Abstract와 동일한 글꼴 크기) -->
     <ul class="content"
         style="font-size:20px; list-style-type:disc; margin-left:1.25rem;">
-      <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
-      <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
-      <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
-      <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
+      GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach for subgoal selection to enable efficient long-horizon reasoning and state transition stitching.
     </ul>
 
     <hr class="section-divider">
