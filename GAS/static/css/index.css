@@ -1,3 +1,7 @@
+.abstract-text a {
+  color: #7851A9 !important;
+}
+
 /* thin grey line between sections */
 .section-divider {
   border: 0;                 /* 기본 hr 테두리 제거 */
