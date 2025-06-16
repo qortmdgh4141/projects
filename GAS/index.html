@@ -109,33 +109,31 @@
   </div>
 </section>
 
-<!-- ====================== Trajectory Stitching Section ====================== -->
-<section class="section">
+<!-- ====================== Stitching Section ====================== -->
+<section class="section is-small">  <!-- is-small ⇒ Bulma: 좁은 상‧하 패딩 -->
   <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-centered">
+    <h2 class="title is-3 has-text-left">
       Why is Trajectory Stitching Crucial in Offline HRL?
     </h2>
 
-    <div class="has-text-centered">
-      <img src="media/figures/traj_stitching.png"
-           alt="Trajectory stitching illustration"
-           style="max-width: 900px; width: 100%; border-radius: 4px;" />
+    <!-- 이미지 (가로폭 100%, 회색 배경 바 안에 배치) -->
+    <div style="background:#f5f5f5; padding:1rem;">
+      <figure class="image">
+        <img src="media/figures/traj_stitching.png" alt="Trajectory stitching illustration" style="width:100%;">
+      </figure>
     </div>
 
-    <p class="subtitle is-6 has-text-centered" style="margin-top: 0.75rem;">
-      Example of trajectory stitching
-    </p>
-
-    <ul style="font-size: 20px; line-height: 1.5;">
-      <li><em>Trajectory stitching</em> composes new trajectories by combining segments from different goal-oriented demonstrations.</li>
-      <li>This lets agents generalize across diverse goals and exploit temporally disjoint transitions absent in any single rollout.</li>
-      <li>Most existing offline HRL methods ignore <strong>cross-goal</strong> stitching, so segments tied to different goals are seldom reused.</li>
-      <li>Ignoring stitching severely limits performance on long-horizon tasks when only static offline datasets are available.</li>
+    <!-- 본문 bullet list (동그라미) -->
+    <ul class="content" style="font-size:18px; list-style-type:disc; margin-left:1.25rem;">
+      <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
+      <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
+      <li>However, existing offline Hierarchical RL (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
+      <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
     </ul>
-
     <hr class="section-divider">
   </div>
 </section>
+
   
 <footer class="footer">
   <div class="container">
