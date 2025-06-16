@@ -110,19 +110,15 @@
 </section>
 
 <!-- ====================== Stitching Section ====================== -->
-<section class="section is-small">  <!-- is-small ⇒ 얇은 상·하 패딩 -->
+<section class="section is-small"> 
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-left">
       Why is Trajectory Stitching Crucial in Offline HRL?
     </h2>
-
-    <!-- 이미지: 불필요한 회색 배경·패딩 제거 -->
     <figure class="image" style="width:95%; margin:3rem auto;">
       <img src="media/figures/trajectory_stitching.png"
            alt="Trajectory stitching illustration" style="width:100%;">
     </figure>
-
-    <!-- 본문 bullet list (동그라미, Abstract와 동일한 글꼴 크기) -->
     <ul class="content"
         style="font-size:20px; list-style-type:disc; margin-left:1.25rem;">
       <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
@@ -130,25 +126,19 @@
       <li>However, existing offline Hierarchical RL (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
       <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
     </ul>
-
     <hr class="section-divider">
   </div>
 </section>
 
-
-
 <!-- ====================== Overview ====================== -->
-<section class="section is-small">  <!-- is-small ⇒ 얇은 상·하 패딩 -->
+<section class="section is-small">  
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-left">
       GAS (Graph-Assisted Stitching)
     </h2>
-
-    <!-- 이미지: 불필요한 회색 배경·패딩 제거 -->
     <figure class="image" style="width:95%; margin:3rem auto;">
       <img src="media/figures/overview_gas.png"
            alt="Trajectory stitching illustration" style="width:100%;">
-
       <figcaption style="margin-top: 1rem; font-size: 17px; text-align: left; color: #555;">
         (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.
         (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.
@@ -156,8 +146,6 @@
         (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
       </figcaption>
     </figure>
-
-    <!-- 본문 bullet list (동그라미, Abstract와 동일한 글꼴 크기) -->
     <ul class="content"
         style="font-size:20px; list-style-type:disc; margin-left:1.25rem;">
       GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach for subgoal selection to enable efficient long-horizon reasoning and state transition stitching.
@@ -167,6 +155,30 @@
   </div>
 </section>
 
+<!-- ==================== TDR ====================== -->
+<section class="section is-small">  
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-left">
+      GAS (Graph-Assisted Stitching)
+    </h2>
+    <figure class="image" style="width:95%; margin:3rem auto;">
+      <img src="media/figures/tdr.png"
+           alt="Trajectory stitching illustration" style="width:100%;">
+      <figcaption style="margin-top: 1rem; font-size: 17px; text-align: left; color: #555;">
+        (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.
+        (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.
+        (3) A TD-based subgoal-conditioned low-level policy is trained using all states.
+        (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
+      </figcaption>
+    </figure>
+    <ul class="content"
+        style="font-size:20px; list-style-type:disc; margin-left:1.25rem;">
+      GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach for subgoal selection to enable efficient long-horizon reasoning and state transition stitching.
+    </ul>
+
+    <hr class="section-divider">
+  </div>
+</section>
   
 <footer class="footer">
   <div class="container">
