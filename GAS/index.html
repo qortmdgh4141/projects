@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-
    <!-- GAS: one-sentence summary for SEO -->
   <meta name="description"
       content="We propose a graph-based offline HRL framework that significantly improves long-horizon reasoning and trajectory stitching.">
   <!-- fine-grained keywords -->
   <meta name="keywords" content="Reinforcement Learning, Offline RL, Unsupervised RL, Goal-conditioned RL, Hierarchical RL">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title>GAS</title>
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9GRNB6TH4"></script>
   <script>
@@ -18,7 +20,7 @@
     gtag('js', new Date());
     gtag('config', 'G-C9GRNB6TH4');
   </script>
-
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -26,7 +28,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -60,12 +62,11 @@
               <a target="_blank">Yusung Kim</a><sup>1,2</sup>,
             </span>
           </div>
-
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Department of Computer Science and Engineering, Sungkyunkwan University, Suwon, Republic of Korea,</span>
             <span class="author-block"><sup>2</sup>Department of Artificial Intelligence, Sungkyunkwan University, Suwon, Republic of Korea,</span>
           </div>
-
+          
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
@@ -78,7 +79,6 @@
                   <span>Paper</span>
                 </a>
               </span>
-
             <!-- Code Link. -->
             <span class="link-block">
               <a target="_blank" href="https://github.com/qortmdgh4141/GAS"
@@ -109,7 +109,34 @@
   </div>
 </section>
 
-
+<!-- ====================== Trajectory Stitching Section ====================== -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3">Why is Trajectory Stitching Crucial in Offline HRL?</h2>
+    <!-- 두 개의 열: 그림 + 캡션 -->
+    <div class="columns is-centered">
+      <div class="column is-narrow has-text-centered">
+        <!-- 예시 그림 -->
+        <img src="media/figures/traj_stitching.png"   <!-- <- pdf를 png 등으로 교체 -->
+             alt="Trajectory stitching illustration"
+             style="max-width: 320px; border-radius: 4px;" />
+        <p class="subtitle is-5" style="margin-top: 0.75rem;">
+          Example of trajectory stitching
+        </p>
+      </div>
+    </div>
+    <!-- 핵심 포인트 Bullet -->
+    <ul style="font-size: 20px; line-height: 1.5;">
+      <li><em>Trajectory stitching</em> composes new trajectories by combining segments from different goal-oriented demonstrations.</li>
+      <li>This lets agents generalize across diverse goals and exploit temporally disjoint transitions absent in any single rollout.</li>
+      <li>Most existing offline HRL methods ignore <strong>cross-goal</strong> stitching, so segments tied to different goals are seldom reused.</li>
+      <li>Ignoring stitching severely limits performance on long-horizon tasks when only static offline datasets are available.</li>
+    </ul>
+    <!-- 연한 회색 구분선 -->
+    <hr class="section-divider">
+  </div>
+</section>
+  
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
