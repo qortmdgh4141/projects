@@ -1,6 +1,5 @@
 .left-narrow {               /* 이미 정의돼 있으므로 여기에만 덧붙이면 됩니다 */
-  max-width: 720px;          /* 폭 제한 */
-  margin-left: 2rem;         /* 제목보다 2 rem 안쪽에서 시작 */
+  margin-left: 4rem;         /* 제목보다 2 rem 안쪽에서 시작 */
   margin-right: 0;           /* 오른쪽은 자유 (원한다면 auto→0) */
 }
 
