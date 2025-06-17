@@ -1,12 +1,13 @@
-<style>
-  /* 모든 좁은 본문에 공통 적용 */
-  .narrow-block {           /* 폰트 · list-style 그대로 유지 */
-    max-width: 720px;       /* 원하는 폭(예시) */
-    margin-left: auto;      /* 가운데 정렬 */
-    margin-right: auto;
-  }
-</style>
-
+.narrow-wrap {            /* 블록 폭·위치 통일 */
+  max-width: 720px;
+  margin-left: 1.25rem;   /* 두 블록 동일 들여쓰기 */
+  margin-right: auto;     /* 오른쪽은 자동 */
+}
+.list-body {              /* 불릿 간격만 확보 */
+  padding-left: 1.25rem;
+  font-size: 20px;
+  list-style-type: disc;
+}
 .abstract-text a {
   color: #7851A9 !important;
 }
