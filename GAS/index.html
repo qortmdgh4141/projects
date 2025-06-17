@@ -157,19 +157,27 @@
 
   
 <!-- ==================== TDR ====================== -->
-<section class="section is-small">  
+<section class="section is-small">
   <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-left">
-      GAS (Graph-Assisted Stitching)
-    </h2>
-    <figure class="image left-narrow" style="width:45%; margin:3rem auto;">
-      <img src="media/figures/icml2025_tdr.png"
-           alt="TDR illustration" style="width:100%;">
-    </figure>
-    <ul class="content"
-        style="font-size:20px; list-style-type:disc;">
-      GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach for subgoal selection to enable efficient long-horizon reasoning and state transition stitching.
-    </ul>
+    <h2 class="title is-3 has-text-left">GAS (Graph-Assisted Stitching)</h2>
+
+    <div class="columns is-vcentered">
+      <!-- 그림: 전체 가로폭의 40% -->
+      <div class="column is-5">   <!-- Bulma 5/12 ≈ 41.7% -->
+        <figure class="image">
+          <img src="media/figures/icml2025_tdr.png" alt="TDR illustration">
+        </figure>
+      </div>
+
+      <!-- 설명: 나머지 60% -->
+      <div class="column is-7">
+        <p class="content" style="font-size:20px; line-height:1.6;">
+          GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning.
+          Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning
+          and state-transition stitching.
+        </p>
+      </div>
+    </div>
 
     <hr class="section-divider">
   </div>
