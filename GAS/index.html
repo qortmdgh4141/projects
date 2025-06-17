@@ -151,23 +151,19 @@
     </ul>
 
     <!-- ====================== TDR ====================== -->
-    <!-- 2. 공백(Top margin 2.5rem 정도) -->
-    <div class="mt-6"></div>
-
-    <!-- 3. 작은 제목 + TDR 그림/설명 (45% + 55%) -->
-    <h3 class="title is-4 has-text-left mb-3">
+    <!-- ======= TDR ======= -->
+    <!-- ① 빈 div 삭제, 대신 h3에 mt-* 추가 -->
+    <h3 class="title is-4 has-text-left mt-6 mb-3">
       Key Idea: Temporal Distance Representation (TDR)
     </h3>
 
     <div class="columns">
-      <!-- 그림 45% -->
       <div class="column" style="flex:0 0 45%;">
         <figure class="image">
           <img src="media/figures/icml2025_tdr.png" alt="TDR illustration">
         </figure>
       </div>
 
-      <!-- 설명 55% -->
       <div class="column">
         <p class="content mt-0" style="font-size:20px; line-height:1.6;">
           A TDR embeds states into a latent space <i>H</i> such that Euclidean distance
