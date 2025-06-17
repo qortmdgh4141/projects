@@ -111,14 +111,14 @@
 <!-- ====================== Stitching Section ====================== -->
 <section class="section">
   <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-left mb-3">
+    <h2 class="title is-3 has-text-left" style="margin-bottom: 3rem;">
       Why is Trajectory Stitching Crucial in Offline HRL?
     </h2>
-    <figure class="image left-narrow" style="width:95%; margin:3rem auto;">
+    <figure class="image left-narrow" style="width:95%; margin: 0 auto 3rem;">
       <img src="media/figures/icml2025_traj_stitching_v4.png"
-           alt="Trajectory stitching illustration" style="width:100%;">
+        alt="Trajectory stitching illustration" style="width:100%;">
     </figure>
-    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc;">
+    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 1.5rem;">
       <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
       <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
       <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
