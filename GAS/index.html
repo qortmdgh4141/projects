@@ -149,10 +149,40 @@
       <li>We propose GAS, a novel offline hierarchical reinforcement learning (HRL) framework that eliminates the need for explicit high-level policy learning.</li>
       <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
-    <hr class="section-divider">
+    
+    <!-- 2. 공백(Top margin 2.5rem 정도) -->
+    <div class="mt-6"></div>
+
+    <!-- 3. 작은 제목 + TDR 그림/설명 (45% + 55%) -->
+    <h3 class="title is-4 has-text-left mb-3">
+      Temporal Distance Representation (TDR)
+    </h3>
+
+    <div class="columns">
+      <!-- 그림 45% -->
+      <div class="column" style="flex:0 0 45%;">
+        <figure class="image">
+          <img src="media/figures/icml2025_tdr.png" alt="TDR illustration">
+        </figure>
+      </div>
+
+      <!-- 설명 55% -->
+      <div class="column">
+        <p class="content mt-0" style="font-size:20px; line-height:1.6;">
+          A TDR embeds states into a latent space <i>H</i> such that Euclidean distance
+          corresponds to the minimum number of steps required to transition between states.
+          This global temporal structure underpins GAS’s graph construction and subgoal reasoning.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
-
+  
+<!--     <hr class="section-divider">
+  </div>
+</section>
+ -->
   
 <!-- ========== TDR (45% 그림 + 55% 설명) ========== -->
 <section class="section is-small">
