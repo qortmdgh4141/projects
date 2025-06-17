@@ -9,6 +9,13 @@
 }
 </style>
 
+.section .container.is-max-widescreen > .content,
+.section .container.is-max-widescreen > p,
+.section .container.is-max-widescreen > ul,
+.section .container.is-max-widescreen > ol,
+.section .container.is-max-widescreen > figcaption {
+  margin-left: 2rem;   /* ← 원하는 만큼 조정 */
+}
 .abstract-text a {
   color: #7851A9 !important;
 }
