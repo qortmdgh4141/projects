@@ -128,9 +128,10 @@
   </div>
 </section>
 
-<!-- ====================== Overview ====================== -->
+<!-- ====================== GAS ====================== -->
 <section class="section is-small">  
   <div class="container is-max-widescreen">
+    <!-- ====================== Overview ====================== -->
     <h2 class="title is-3 has-text-left mb-3">
       GAS (Graph-Assisted Stitching)
     </h2>
@@ -145,9 +146,6 @@
       </figcaption>
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc;">
-<!--       <li>GAS eliminates the need for explicit high-level policy learning in offline HRL.</li>
-      <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li> 
-      <li>In this work, we proposed Graph-Assisted Stitching (GAS), a novel offline hierarchical reinforcement learning (HRL) framework that eliminates the need for explicit high-level policy learning.</li>-->
       <li>We propose GAS, a novel offline hierarchical reinforcement learning (HRL) framework that eliminates the need for explicit high-level policy learning.</li>
       <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
@@ -156,22 +154,24 @@
 </section>
 
   
-<!-- ==================== TDR ====================== -->
+<!-- ========== TDR (45% 그림 + 55% 설명) ========== -->
 <section class="section is-small">
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-left">GAS (Graph-Assisted Stitching)</h2>
 
-    <div class="columns is-vcentered">
-      <!-- 그림: 전체 가로폭의 40% -->
-      <div class="column is-5">   <!-- Bulma 5/12 ≈ 41.7% -->
+    <!-- 1) is-vcentered 제거 -->
+    <div class="columns">
+      <!-- 그림: 45% -->
+      <div class="column is-5" style="flex: 0 0 45%;">
         <figure class="image">
           <img src="media/figures/icml2025_tdr.png" alt="TDR illustration">
         </figure>
       </div>
 
-      <!-- 설명: 나머지 60% -->
-      <div class="column is-7">
-        <p class="content" style="font-size:20px; line-height:1.6;">
+      <!-- 설명: 나머지 공간 -->
+      <div class="column">
+        <!-- 2) 위 마진 제거 -->
+        <p class="content mt-0" style="font-size:20px; line-height:1.6;">
           GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning.
           Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning
           and state-transition stitching.
