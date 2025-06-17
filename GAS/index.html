@@ -151,23 +151,24 @@
     </ul>
 
     <!-- ====================== TDR ====================== -->
-    <!-- 제목은 그대로 -->
-    <h3 class="title is-4 has-text-left mt-6 mb-3">
+    <h3 class="title is-4 has-text-left">
       Temporal Distance Representation (TDR)
     </h3>
     
-    <!-- columns 블록에 왼쪽 여백만 주기 -->
-    <div class="columns ml-5"><!-- ml-5 ≈ 1.5 rem 들여쓰기 -->
+    <!-- 그림 + 설명: 95 % 폭 + 위쪽 3 rem -->
+    <div class="columns" style="width:95%; margin:3rem auto 0;">
+      <!-- 그림 45 % -->
       <div class="column" style="flex:0 0 45%;">
         <figure class="image">
           <img src="media/figures/icml2025_tdr.png" alt="TDR illustration">
         </figure>
       </div>
     
+      <!-- 설명 55 % -->
       <div class="column">
         <p class="content mt-0" style="font-size:20px; line-height:1.6;">
           A TDR embeds states into a latent space <i>H</i> such that Euclidean distance
-          corresponds to the minimum number of steps required to transition between states.
+          corresponds to the minimum number&nbsp;of steps required to transition between states.
           This global temporal structure underpins GAS’s graph construction and subgoal reasoning.
         </p>
       </div>
