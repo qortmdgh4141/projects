@@ -1,7 +1,8 @@
-<style>
-/* 폭은 유지하되 왼쪽 정렬 */
-.left-narrow { max-width: 720px; margin-left: 0; margin-right: 0; }
-</style>
+.left-narrow {               /* 이미 정의돼 있으므로 여기에만 덧붙이면 됩니다 */
+  max-width: 720px;          /* 폭 제한 */
+  margin-left: 2rem;         /* 제목보다 2 rem 안쪽에서 시작 */
+  margin-right: 0;           /* 오른쪽은 자유 (원한다면 auto→0) */
+}
 
 <style>
 .indent {          /* 제목보다 2 rem 안쪽으로 */
