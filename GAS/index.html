@@ -109,6 +109,18 @@
   </div>
 </section>
 
+<!-- ====================== Abstract Section ====================== -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3">Abstract</h2>
+
+    <p class="abstract-text content has-text-justified" style="font-size: 20px;">
+      Existing offline hierarchical reinforcement learning methods rely on high-level policy learning to generate subgoal sequences. However, their efficiency degrades as task horizons increase, and they lack effective strategies for stitching useful state transitions across different trajectories. We propose Graph-Assisted Stitching (GAS), a novel framework that formulates subgoal selection as a graph search problem rather than learning an explicit high-level policy. By embedding states into a Temporal Distance Representation (TDR) space, GAS clusters semantically similar states from different trajectories into unified graph nodes, enabling efficient transition stitching. A shortest-path algorithm is then applied to select subgoal sequences within the graph, while a low-level policy learns to reach the subgoals. To improve graph quality, we introduce the Temporal Efficiency (TE) metric, which filters out noisy or inefficient transition states, significantly enhancing task performance. GAS outperforms prior offline HRL methods across locomotion, navigation, and manipulation tasks. Notably, in the most stitching-critical task, it achieves a score of 88.3, dramatically surpassing the previous state-of-the-art score of 1.0. Our source code is available at: <a href="https://github.com/qortmdgh4141/GAS" target="_blank">https://github.com/qortmdgh4141/GAS</a>.
+    </p>
+    <hr class="section-divider">
+  </div>
+</section>
+
 <!-- ====================== Stitching Section ====================== -->
 <section class="section is-small"> 
   <div class="container is-max-widescreen">
@@ -120,40 +132,13 @@
            alt="Trajectory stitching illustration" style="width:100%;">
     </figure> 
 
-    <div class="narrow-wrap">
-      <ul class="content list-body">
-        <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
-        <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
-        <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
-        <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
-      </ul>
-    </div>
-    <hr class="section-divider">
-  </div>
-</section>
-
-<!-- ====================== Overview ====================== -->
-<section class="section is-small">  
-  <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-left">
-      GAS (Graph-Assisted Stitching)
-    </h2>
-    <figure class="image" style="width:100%; margin:3rem auto;">
-      <img src="media/figures/icml2025_overview_v2.png"
-           alt="Overview illustration" style="width:100%;">
-      <figcaption style="margin-top: 1rem; font-size: 17px; text-align: left; color: #555;">
-        (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.
-        (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.
-        (3) A TD-based subgoal-conditioned low-level policy is trained using all states.
-        (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
-      </figcaption>
-    </figure>
-    <div class="narrow-wrap">
-      <p style="font-size:20px; line-height:1.6;">
-        GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.
-      </p>
-    </div>
-
+    <ul class="content narrow-block"
+        style="font-size:20px; list-style-type:disc;">
+      <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
+      <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
+      <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
+      <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
+    </ul>
     <hr class="section-divider">
   </div>
 </section>
