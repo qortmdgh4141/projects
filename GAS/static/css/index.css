@@ -1,12 +1,8 @@
-.narrow-wrap {            /* 블록 폭·위치 통일 */
-  max-width: 720px;
-  margin-left: 1.25rem;   /* 두 블록 동일 들여쓰기 */
-  margin-right: auto;     /* 오른쪽은 자동 */
-}
-.list-body {              /* 불릿 간격만 확보 */
-  padding-left: 1.25rem;
-  font-size: 20px;
-  list-style-type: disc;
+.narrow-block{
+  max-width: 720px;          /* 제목보다 살짝 좁은 폭 */
+  margin-left: auto;
+  margin-right: auto;        /* ↔ 좌우 중앙 정렬 */
+  line-height: 1.6;
 }
 .abstract-text a {
   color: #7851A9 !important;
