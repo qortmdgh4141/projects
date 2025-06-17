@@ -120,13 +120,14 @@
            alt="Trajectory stitching illustration" style="width:100%;">
     </figure> 
 
-    <ul class="content narrow-block"
-        style="font-size:20px; list-style-type:disc;">
-      <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
-      <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
-      <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
-      <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
-    </ul>
+    <div class="narrow-wrap">
+      <ul class="content list-body">
+        <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
+        <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
+        <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
+        <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
+      </ul>
+    </div>
     <hr class="section-divider">
   </div>
 </section>
@@ -147,10 +148,11 @@
         (4) The graph is utilized for task planning and subgoal selection, while action execution is performed by the low-level policy.
       </figcaption>
     </figure>
-    <ul class="content narrow-block"
-        style="font-size:20px; list-style-type:disc;">
-      GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.
-    </ul>
+    <div class="narrow-wrap">
+      <p style="font-size:20px; line-height:1.6;">
+        GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.
+      </p>
+    </div>
 
     <hr class="section-divider">
   </div>
