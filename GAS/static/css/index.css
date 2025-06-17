@@ -3,6 +3,12 @@
 .left-narrow { max-width: 720px; margin-left: 0; margin-right: 0; }
 </style>
 
+<style>
+.indent {          /* 제목보다 2 rem 안쪽으로 */
+  margin-left: 2rem;  
+}
+</style>
+
 .abstract-text a {
   color: #7851A9 !important;
 }
