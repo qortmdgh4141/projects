@@ -1,6 +1,6 @@
 .left-narrow {               /* 이미 정의돼 있으므로 여기에만 덧붙이면 됩니다 */
   margin-left: 3rem;         /* 제목보다 2 rem 안쪽에서 시작 */
-  margin-right: 0;           /* 오른쪽은 자유 (원한다면 auto→0) */
+  width: calc(100% - 2rem);        /* 남은 가로폭만 사용 */
 }
 
 <style>
