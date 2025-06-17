@@ -2,6 +2,12 @@
   margin-left: 3rem;         /* 제목보다 2 rem 안쪽에서 시작 */
 }
 
+/* left-narrow 폭(최대 720 px 등) + 가운데 정렬 */
+figure.left-narrow {
+  margin-left: auto;   /* 중앙 정렬  */
+  margin-right: auto;  /*      ″      */
+}
+
 .abstract-text a {
   color: #7851A9 !important;
 }
