@@ -1,25 +1,29 @@
-.left-narrow {               /* 이미 정의돼 있으므로 여기에만 덧붙이면 됩니다 */
-  margin-left: 3rem;         /* 제목보다 2 rem 안쪽에서 시작 */
+.left-narrow {               
+  margin-left: 3rem;        
 }
 
-/* left-narrow 폭(최대 720 px 등) + 가운데 정렬 */
 figure.left-narrow {
-  margin-left: auto;   /* 중앙 정렬  */
-  margin-right: auto;  /*      ″      */
+  margin-left: auto;  
+  margin-right: auto;  
 }
+
+/* .left-wider {
+  margin-left: 6rem;
+} */
 
 .abstract-text a {
   color: #7851A9 !important;
 }
 
-/* thin grey line between sections */
 .section-divider {
-  border: 0;                 /* 기본 hr 테두리 제거 */
-  border-top: 1px solid #e0e0e0;  /* 연한 회색 선 */
+  border: 0;                
+  border-top: 1px solid #e0e0e0;  
 }
-section.section {           /* 모든 섹션 패딩 ↓ */
-  padding: 1.0rem 0;        /* 필요하면 1rem 등으로 더 줄이세요 */
+
+section.section {           
+  padding: 1.0rem 0;        
 }
+
 
 body {
   font-family: 'Noto Sans', sans-serif;
