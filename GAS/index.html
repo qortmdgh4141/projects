@@ -123,7 +123,7 @@
     </figure> 
 
     <!-- 불릿리스트: 왼쪽 2 rem, 위 1 rem -->
-    <ul class="content narrow-block indent mt-4" style="font-size:20px; list-style-type:disc;">
+    <ul class="content left-narrow indent mt-4" style="font-size:20px; list-style-type:disc;">
       <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
       <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
       <li>However, existing offline hierarchical reinforcement learning (HRL) methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
@@ -146,7 +146,7 @@
            alt="Overview illustration" style="width:100%;">
 
       <!-- 캡션: 동일 들여쓰기 적용 -->
-      <figcaption class="indent" style="margin-top:1rem; font-size:17px; color:#555;">
+      <figcaption class="left-narrow indent" style="margin-top:1rem; font-size:17px; color:#555;">
         (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.<br>
         (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.<br>
         (3) A TD-based subgoal-conditioned low-level policy is trained using all states.<br>
@@ -155,7 +155,7 @@
     </figure>
 
     <!-- 단일 문장은 <p> + 동일 들여쓰기 -->
-    <p class="content narrow-block indent mt-4" style="font-size:20px;">
+    <p class="content left-narrow indent mt-4" style="font-size:20px;">
       GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.
     </p>
 
