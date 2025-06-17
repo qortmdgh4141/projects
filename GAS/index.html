@@ -134,13 +134,9 @@
     <h2 class="title is-3 has-text-left mb-3">
       GAS (Graph-Assisted Stitching)
     </h2>
-
-    <!-- ① 이미지 -->
     <figure class="image left-narrow" style="width:100%; margin:3rem 0;">
       <img src="media/figures/icml2025_overview_v1.png"
            alt="Overview illustration" style="width:100%;">
-
-      <!-- ② 캡션 -->
       <figcaption class="left-narrow" style="margin-top:1rem; font-size:17px; color:#555;">
         (1) A Temporal Distance Representation (TDR) is pretrained from an offline dataset.
         (2) A graph is constructed by selecting only high-TE states based on the Temporal Efficiency (TE) metric.
@@ -149,10 +145,10 @@
       </figcaption>
     </figure>
 
-    <!-- ③ 본문 문장 -->
-    <p class="content left-narrow" style="font-size:20px;">
-      GAS is a novel framework for offline HRL that eliminates the need for explicit high-level policy learning. Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.
-    </p>
+    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc;">
+      <li>GAS eliminates the need for explicit high-level policy learning in offline HRL.</li>
+      <li>Subgoal selection is reformulated as a graph search, enabling efficient long-horizon reasoning and trajectory stitching.</li>
+    </ul>
 
     <hr class="section-divider">
   </div>
