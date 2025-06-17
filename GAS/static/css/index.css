@@ -1,9 +1,8 @@
-.narrow-block{
-  max-width: 720px;          /* 제목보다 살짝 좁은 폭 */
-  margin-left: auto;
-  margin-right: auto;        /* ↔ 좌우 중앙 정렬 */
-  line-height: 1.6;
-}
+<style>
+/* 폭은 유지하되 왼쪽 정렬 */
+.left-narrow { max-width: 720px; margin-left: 0; margin-right: 0; }
+</style>
+
 .abstract-text a {
   color: #7851A9 !important;
 }
