@@ -13,6 +13,11 @@
   
   <title>GAS</title>
   
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9GRNB6TH4"></script>
   <script>
@@ -120,13 +125,11 @@
         alt="Trajectory stitching illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 1.5rem;">
-    
-      <li>Trajectory stitching refers to the process of composing new trajectories by combining partial segments from different goal-oriented trajectories.</li>
-      <li>This enables agents to generalize across diverse goals and utilize temporally disjoint transitions that are not observed in a single trajectory.</li>
-      <li>However, existing offline HRL methods often overlook cross-goal stitching, where segments associated with different goals are reused to construct new compositions.</li>
-      <li>This limitation hinders the ability to solve long-horizon tasks effectively using offline datasets.</li>
+      <li>Stitching composes new trajectories by connecting partial segments from different goal-oriented trajectories.</li>
+      <li>This enables agents to utilize transitions that are temporally disjoint and not observed within a single trajectory.</li>
+      <li>Such stitching facilitates generalization across goals, especially in sparse-reward and long-horizon tasks.</li>
+      <li>However, existing hierarchical reinforcement learning (HRL) methods typically lack mechanisms for cross-goal stitching, limiting their ability to compose effective subgoal sequences from suboptimal trajectories.</li>
     </ul>
-
     <hr class="section-divider">
   </div>
 </section>
@@ -156,6 +159,7 @@
       <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
       <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
+
     <!-- ====================== Key Ideas ====================== -->
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
       Key Ideas
@@ -172,8 +176,20 @@
       </div>
       <div class="column">
         <ul class="content" style="font-size:20px; list-style-type:disc; margin-bottom: 0.0rem;">
-          <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-          <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
+        <li>
+          TDR \( \psi \) embeds states into a latent space \( \mathcal{H} \), 
+          where the Euclidean distance between any two points corresponds to the minimum number of steps 
+          required to transition from one state to another in the raw state space \( \mathcal{S} \). 
+        </li>
+        <li>
+          This representation preserves global temporal structure through the following objective:
+          <span style="display:block; margin:0.5rem 0 0 0; font-size:80%;">
+            \(\mathbb{E}_{(s,s',g)\sim\mathcal{D}}
+              \bigl[\ell_\tau^2\!\bigl(-\mathbf{1}\{s\neq g\}
+              -\gamma\,\lVert\psi(s')
+              -\psi(g)\rVert_2+\lVert\psi(s)-\psi(g)\rVert_2\bigr)\bigr]\)
+          </span>
+        </li>
         </ul>
       </div>
     </div>
@@ -181,7 +197,7 @@
     <h4 class="title is-4 has-text-left" style="margin-bottom: 1.0rem;">
       Temporal Efficiency (TE)
     </h4>
-    <div class="columns" style="margin: 0 auto 2.0rem; gap: 3rem;">
+    <div class="columns" style="margin: 0 auto -2.0rem; gap: 3rem;">
       <div class="column" style="flex:0 0 45%;">
         <figure class="image">
           <img src="media/figures/icml2025_TE_v1.png" alt="TE illustration">
@@ -189,16 +205,27 @@
       </div>
       <div class="column">
         <ul class="content" style="font-size:20px; list-style-type:disc; margin-bottom: 4.5rem;">
-          <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-          <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
-        </ul>
+        <li>
+          TE measures the directional alignment between the actual and optimal transitions over a fixed temporal distance.
+        </li>
+        <li>
+          Specifically, given a state \( s_{\text{cur}} \), the optimal future state \( s_{\text{opt}} \) is defined as the state observed after a temporal distance of \( H_{\text{TD}} \) within the same trajectory, 
+          and the actual reached state \( s_{\text{reached}} \) is observed \( H_{\text{TD}} \) steps ahead.
+        </li>
+        <li>
+         TE is then computed via cosine similarity in TDR space:
+          <span style="display:block; margin:0.5rem 0 0 0; font-size:80%;">
+            \(\theta_{\text{TE}} = \cos\bigl(\psi(s_{\text{opt}})-\psi(s_{\text{cur}}),\,\psi(s_{\text{reached}})-\psi(s_{\text{cur}})\bigr)\)
+          </span>
+        </li>
+      </ul>
       </div>
     </div>
     <!-- ====================== TD-aware Clustering ====================== --> 
     <h4 class="title is-4 has-text-left" style="margin-bottom: 1.0rem;">
       TD-aware Graph Construction
     </h4>
-    <div class="columns" style="margin: 0 auto 2.0rem; gap: 3rem;">
+    <div class="columns" style="margin: 0 auto 2.5rem; gap: 3rem;">
       <div class="column" style="flex:0 0 45%;">
         <figure class="image">
           <img src="media/figures/icml2025_TD_aware_clustering.png" alt="TD-aware clustering illustration">
@@ -206,8 +233,12 @@
       </div>
       <div class="column">
         <ul class="content" style="font-size:20px; list-style-type:disc; margin-bottom: 0.5rem;">
-          <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-          <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
+        <li>
+          GAS clusters states in the TDR space at regular temporal distance intervals \( H_{\text{TD}} \), grouping semantically similar states from different trajectories.
+        </li>
+        <li>
+          Each cluster center becomes a graph node, and edges are added between nodes if their temporal distance is below \( H_{\text{TD}} \), enabling stitching across disconnected trajectories.
+        </li>
         </ul>
       </div>
     </div>
@@ -223,8 +254,23 @@
       </div>
       <div class="column">
         <ul class="content" style="font-size:20px; list-style-type:disc; margin-bottom: 0.0rem;">
-          <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-          <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
+        <li>
+          A subgoal \( s_{\text{sub}} \) is selected based on a fixed temporal distance \( H_{\text{TD}} \) within the same trajectory.
+        </li>
+        <li>
+          To train the low-level policy, the selected subgoal is transformed into a direction vector 
+          <span style="font-size:80%;">\( \vec{h}_{\text{dir}} = \operatorname{dir}(\psi(s_t), \psi(s_{\text{sub}})) \)</span>, and used in the low-level policy objective:
+          <span style="display:block; margin:0.5rem 0; font-size:80%;">
+            \(\displaystyle
+              \mathbb{E}_{\mathcal{D}}
+              \Bigl[
+                Q\!\bigl(s_t,\mu^\pi(s_t,\vec{h}_{\text{dir}}),\vec{h}_{\text{dir}}\bigr)
+                +\,
+                \alpha\,\log \pi\!\bigl(a \mid s_t,\vec{h}_{\text{dir}}\bigr)
+              \Bigr]
+            \)
+          </span>
+        </li>
         </ul>
       </div>
     </div>
@@ -249,8 +295,6 @@
     </figure>
 
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 2.5rem;">
-      <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-      <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
     <!-- ====================== Results (state)====================== -->
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
@@ -265,8 +309,6 @@
            alt="main_table_(state) illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
-      <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-      <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
     <!-- ====================== Results (pixel)====================== -->
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
@@ -281,9 +323,7 @@
            alt="main_table_(state) illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
-      <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-      <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
-    </ul>    
+    </ul>   
     <hr class="section-divider">
   </div>
 </section>
@@ -299,7 +339,8 @@
            alt="main_table_(pixel) illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
-      <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
+      <li>The graph is constructed in a latent representation space, but for visualization purposes, each node embedding is projected onto a 2D plane using
+approximate 2D coordinates (i.e., x-y position).</li>
     </ul>
     <hr class="section-divider">
   </div>
