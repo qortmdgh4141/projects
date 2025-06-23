@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-  
 <head>
   <meta charset="utf-8">
-   <!-- GAS: one-sentence summary for SEO -->
+   <!-- one-sentence summary for SEO -->
   <meta name="description"
       content="We propose a graph-based offline HRL framework that significantly improves long-horizon reasoning and trajectory stitching.">
   <!-- fine-grained keywords -->
@@ -107,7 +106,7 @@
 <section class="section">
   <div class="container is-max-widescreen">
     <h2 class="title is-2" style="margin-bottom: 2.0rem;">Abstract</h2>
-    <p class="abstract-text content has-text-justified" style="font-size: 20px; margin-bottom: 1.5rem;">
+    <p class="abstract-text content has-text-justified" style="font-size: 20px; margin-bottom: 2.5rem;">
       Existing offline hierarchical reinforcement learning (HRL) methods rely on high-level policy learning to generate subgoal sequences. However, their efficiency degrades as task horizons increase, and they lack effective strategies for stitching useful state transitions across different trajectories. We propose Graph-Assisted Stitching (GAS), a novel framework that formulates subgoal selection as a graph search problem rather than learning an explicit high-level policy. By embedding states into a Temporal Distance Representation (TDR) space, GAS clusters semantically similar states from different trajectories into unified graph nodes, enabling efficient transition stitching. A shortest-path algorithm is then applied to select subgoal sequences within the graph, while a low-level policy learns to reach the subgoals. To improve graph quality, we introduce the Temporal Efficiency (TE) metric, which filters out noisy or inefficient transition states, significantly enhancing task performance. GAS outperforms prior offline HRL methods across locomotion, navigation, and manipulation tasks. Notably, in the most stitching-critical task, it achieves a score of 88.3, dramatically surpassing the previous state-of-the-art score of 1.0. Our source code is available at: <a href="https://github.com/qortmdgh4141/GAS" target="_blank">https://github.com/qortmdgh4141/GAS</a>.
     </p>
     <hr class="section-divider">
@@ -122,9 +121,9 @@
     </h2>
     <figure class="image left-narrow" style="width:99%; margin: 0 auto 2.5rem auto;">
       <img src="media/figures/icml2025_traj_stitching_v4.png"
-        alt="Trajectory stitching illustration" style="width:100%;">
+        alt="Trajectory Stitching illustration" style="width:100%;">
     </figure>
-    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 1.5rem;">
+    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 2.0rem;">
       <li>Stitching composes new trajectories by connecting partial segments from different goal-oriented trajectories.</li>
       <li>This enables agents to utilize transitions that are temporally disjoint and not observed within a single trajectory.</li>
       <li>Such stitching facilitates generalization across goals, especially in sparse-reward and long-horizon tasks.</li>
@@ -144,7 +143,6 @@
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
       Overview
     </h3>
-    <!-- <figure class="image left-narrow" style="width:99%; margin: 0 0 2.0rem 0.3rem;"> -->
     <figure class="image left-narrow" style="width:99%; margin: 0 auto 2.0rem auto;">
       <img src="media/figures/icml2025_overview_v4.png"
            alt="Overview illustration" style="width:100%;">
@@ -159,13 +157,12 @@
       <li>We propose Graph-Assisted Stitching (GAS), a novel offline HRL framework that eliminates the need for explicit high-level policy learning.</li>
       <li>Instead, GAS formulates subgoal selection as a graph-based approach to enable efficient long-horizon reasoning and state transition stitching.</li>
     </ul>
-
     <!-- ====================== Key Ideas ====================== -->
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
       Key Ideas
     </h3>
     <!-- ====================== TDR ====================== -->
-    <h4 class="title is-4 has-text-left" style="margin-bottom: 1.0rem;">
+    <h4 class="title is-4 has-text-left" style="margin-bottom: 0.5rem;">
       Temporal Distance Representation (TDR)
     </h4>
     <div class="columns" style="margin: 0 auto 2.0rem; gap: 3rem;">
@@ -221,14 +218,14 @@
       </ul>
       </div>
     </div>
-    <!-- ====================== TD-aware Clustering ====================== --> 
+    <!-- ====================== TD-aware Graph Construction====================== --> 
     <h4 class="title is-4 has-text-left" style="margin-bottom: 1.0rem;">
       TD-aware Graph Construction
     </h4>
     <div class="columns" style="margin: 0 auto 2.5rem; gap: 3rem;">
       <div class="column" style="flex:0 0 45%;">
         <figure class="image">
-          <img src="media/figures/icml2025_TD_aware_clustering.png" alt="TD-aware clustering illustration">
+          <img src="media/figures/icml2025_TD_aware_clustering.png" alt="TD-aware Graph Construction illustration">
         </figure>
       </div>
       <div class="column">
@@ -242,9 +239,9 @@
         </ul>
       </div>
     </div>
-    <!-- ====================== TD-aware subgoal sampling ====================== --> 
+    <!-- ====================== TD-aware Subgoal Sampling ====================== --> 
     <h4 class="title is-4 has-text-left" style="margin-bottom: 0.9rem;">
-      TD-aware subgoal sampling
+      TD-aware Subgoal Sampling
     </h4>
     <div class="columns" style="margin: 0 auto 2.0rem; gap: 3rem;">  
       <div class="column" style="flex:0 0 45%;">
@@ -260,7 +257,7 @@
         <li>
           To train the low-level policy, the selected subgoal is transformed into a direction vector 
           <span style="font-size:80%;">\( \vec{h}_{\text{dir}} = \operatorname{dir}(\psi(s_t), \psi(s_{\text{sub}})) \)</span>, and used in the low-level policy objective:
-          <span style="display:block; margin:0.5rem 0; font-size:80%;">
+          <span style="display:block; margin-top:0.5rem 0; font-size:80%;">
             \(\displaystyle
               \mathbb{E}_{\mathcal{D}}
               \Bigl[
@@ -278,7 +275,6 @@
   </div>
 </section>
 
-
 <!-- ====================== EXP ====================== -->
 <section class="section">  
   <div class="container is-max-widescreen">
@@ -289,12 +285,12 @@
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
       Datasets
     </h3>
-    <figure class="image left-narrow" style="width:100%; margin: 0 auto 2.0rem auto;">
+    <figure class="image left-narrow" style="width:100%; margin: 0 auto 1.5rem auto;">
       <img src="media/figures/icml2025_env_dataset_type.png"
            alt="Datasets illustration" style="width:100%;">
     </figure>
-
-    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 2.5rem;">
+    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
+      <li>We evaluate GAS on OGBench (Park et al., 2025) and D4RL (Fu et al., 2020), spanning diverse dataset types such as locomotion, stitching, exploration, and manipulation.</li>
     </ul>
     <!-- ====================== Results (state)====================== -->
     <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
@@ -318,12 +314,26 @@
       <img src="media/figures/icml2025_main_table_(pixel).png"
            alt="main_table_(pixel) illustration" style="width:100%;">
     </figure>
-    <figure class="image left-narrow" style="width:99%; margin: 0 auto 2.0rem auto;">
+    <figure class="image left-narrow" style="width:99%; margin: 0 auto 1.5rem auto;">
       <img src="media/figures/icml2025_pixel_barplot.png"
            alt="main_table_(state) illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
     </ul>   
+    <!-- ====================== Performance Highlights====================== -->
+    <h3 class="title is-3 has-text-left" style="margin-bottom: 2.0rem;">
+      Performance Highlights
+    </h3>
+    <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 2.5rem; margin-left: 0.4rem;">
+      <p style="font-size:20px;"><b>Q. Does GAS excel at long-horizon reasoning?</b><br>
+      Yes, GAS shows strong performance on <i>antmaze-<b><span style="color:#7851A9">giant</span></b>-{navigate, stitch}</i>, which require substantial long-horizon reasoning capabilities of the agent.</p>
+      <p style="font-size:20px;"><b>Q. Does GAS demonstrate effective stitching ability?</b><br>
+      Yes, GAS consistently outperforms baselines on <i>antmaze-{medium, large, giant}-<b><span style="color:#7851A9">stitch</span></b></i>, where the datasets consist of short goal-reaching trajectories.</p>
+      <p style="font-size:20px;"><b>Q. Can GAS effectively learn from suboptimal datasets?</b><br>
+      Yes, GAS achieves the best performance on <i>antmaze-{medium, large}-<b><span style="color:#7851A9">explore</span></b></i>, where the datasets consist of extremely low-quality data.</p>
+      <p style="font-size:20px;"><b>Q. Can GAS effectively handle image-based tasks?</b><br>
+      Yes, GAS demonstrates strong performance not only in state-based environments but also in <i><b><span style="color:#7851A9">pixel</span></b>-based environments</i>.</p>
+    </ul>
     <hr class="section-divider">
   </div>
 </section>
@@ -336,16 +346,14 @@
     </h2>
     <figure class="image left-narrow" style="width:99%; margin: 0 auto 2.0rem auto;">
       <img src="media/figures/icml2025_subgoal_viz.png"
-           alt="main_table_(pixel) illustration" style="width:100%;">
+           alt="Subgoal Visualizations illustration" style="width:100%;">
     </figure>
     <ul class="content left-narrow" style="font-size:20px; list-style-type:disc; margin-bottom: 3.0rem;">
-      <li>The graph is constructed in a latent representation space, but for visualization purposes, each node embedding is projected onto a 2D plane using
-approximate 2D coordinates (i.e., x-y position).</li>
+      <li>The graph is constructed in a latent representation space, but for visualization purposes, each node embedding is projected onto a 2D plane using approximate 2D coordinates (i.e., x-y position).</li>
     </ul>
     <hr class="section-divider">
   </div>
 </section>
-
 <!-- ====================== BibTeX ====================== -->
 <section class="section">
   <div class="container is-max-widescreen">
@@ -353,23 +361,23 @@ approximate 2D coordinates (i.e., x-y position).</li>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <pre style="
       background:#f5f5f5;
-      padding:1.4rem 1.6rem 1.2rem;   
+      padding:1.5rem 0.0rem 1.5rem;   
       border-radius:6px;
-      font-size:16px;
+      font-size:18px;
       font-family:'Roboto Mono', monospace;
       line-height:1.35;
-      margin:0;">
-      @inproceedings{gas_baek2025,
-        title={Graph-Assisted Stitching for Offline Hierarchical Reinforcement Learning},
-        author={Seungho Baek and Taegeon Park and Jongchan Park and Seungjun Oh and Yusung Kim},
-        booktitle={International Conference on Machine Learning (ICML)},
-        year={2025},
-      }
-    </pre>
+      margin:2.0;">
+    @inproceedings{gas_baek2025,
+    title={Graph-Assisted Stitching for Offline Hierarchical Reinforcement Learning},
+    author={Seungho Baek and Taegeon Park and Jongchan Park and Seungjun Oh and Yusung Kim},
+    booktitle={International Conference on Machine Learning (ICML)},
+    year={2025},
+    }</pre>
+      <h2 class="title is-2 has-text-left" style="margin-bottom: 3.0rem;">
+      </h2>
     <hr class="section-divider">
   </div>
 </section>
-  
 <!-- ====================== footer ====================== -->
 <footer class="footer">
   <div class="container">
