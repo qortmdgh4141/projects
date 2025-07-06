@@ -274,6 +274,6 @@ body {
 }
 @media (max-width: 768px) {
   body {
-    font-size: 0.9em; /* 또는 90% 등 비율로 조정 (추천값) */
+    font-size: 0.5em; /* 또는 90% 등 비율로 조정 (추천값) */
   }
 }
