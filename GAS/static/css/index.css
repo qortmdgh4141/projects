@@ -298,3 +298,24 @@ body {
   ul, li { list-style-type: disc !important; padding-left: 1.3em !important; }
 
 }
+/* ---------- 모바일 타이포 + 리스트 복구 패치 ---------- */
+@media (max-width: 768px) {
+
+  /* ① Bulma가 고정해 둔 제목 크기 전면 덮어쓰기 */
+  h1.title, h2.title, h3.title,
+  .title.is-1, .title.is-2, .title.is-3,
+  .title.is-4, .title.is-5, .title.is-6 {
+      font-size: inherit !important;   /* = 부모(html)의 87.5 % */
+      line-height: 1.25;
+  }
+
+  /* ② 인라인 font-size(20 px 등) 재정의 */
+  [style*="font-size"] {
+      font-size: 0.95rem !important;   /* ≈ 13 px */
+  }
+
+  /* ③ 글머리표 다시 보이게 */
+  ul, ol      { padding-left: 1.3em !important; }
+  li          { list-style-type: disc !important; }
+
+}
