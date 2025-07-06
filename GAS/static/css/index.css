@@ -249,3 +249,18 @@ body {
 .has-text-size-4 { 
   font-size: 2.5rem; /* 或者你可以设置一个更大的值，比如 2rem */ 
 }
+
+/* ===== mobile full-width tweak ===== */
+@media (max-width: 768px) {
+  /* 왼쪽·오른쪽 여백 제거 */
+  .left-narrow,
+  figure.left-narrow {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* Bulma 컨테이너 기본 패딩만 남김 */
+  .container.is-max-widescreen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
