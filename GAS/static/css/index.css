@@ -286,3 +286,15 @@ body {
     margin-right: 0;
   }
 }
+@media (max-width: 768px) {
+
+  /* (A) Bulma가 !important 로 고정해 둔 .title 크기를 강제로 덮어씌움 */
+  h1.title, h2.title, h3.title { font-size: inherit !important; }
+
+  /* (B) 인라인 스타일(font-size:20px 등)도 모바일에선 축소되도록 */
+  p[style*="font-size"], li[style*="font-size"] { font-size: 0.95rem !important; }
+
+  /* (C) 글머리표 사라짐 방지 — 여백 복원 + 표시 강제 */
+  ul, li { list-style-type: disc !important; padding-left: 1.3em !important; }
+
+}
