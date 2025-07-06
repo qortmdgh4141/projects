@@ -251,29 +251,38 @@ body {
 }
 
 /* ===== mobile full-width tweak ===== */
+/* ===== 모바일 최적화 ===== */
 @media (max-width: 768px) {
-  /* 왼쪽·오른쪽 여백 제거 */
+  /* ① 기본 글꼴 축소(16 px → 14 px 정도) */
+  html        { font-size: 87.5%; }   /* =14px */
+  
+  /* ② 제목 계층별 크기 조정 */
+  h1.title    { font-size: 1.6rem; }  /* ≈25.6px */
+  h2.title    { font-size: 1.4rem; }
+  h3.title    { font-size: 1.2rem; }
+  
+  /* ③ 본문·목록 글꼴 약간 축소 + 줄간격 확보 */
+  p,
+  li,
+  .content,
+  .abstract-text {
+    font-size: 0.95rem;               /* ≈13.3px */
+    line-height: 1.4;
+  }
+
+  /* ④ 긴 링크·수식이 옆으로 튀지 않도록 */
+  a,
+  code,
+  mjx-container {                     /* MathJax 루트 */
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+  mjx-container { overflow-x: auto; } /* 필요 시 가로 스크롤 */
+
+  /* ⑤ 양쪽 여백 제거(이미 사용 중이면 생략) */
   .left-narrow,
   figure.left-narrow {
     margin-left: 0;
     margin-right: 0;
-  }
-  /* Bulma 컨테이너 기본 패딩만 남김 */
-  .container.is-max-widescreen {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-img, video, table, iframe {
-  max-width: 100%;
-  height: auto;
-  box-sizing: border-box;
-}
-body {
-  overflow-x: hidden;
-}
-@media (max-width: 768px) {
-  body {
-    font-size: 0.5em; /* 또는 90% 등 비율로 조정 (추천값) */
   }
 }
