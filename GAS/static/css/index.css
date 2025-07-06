@@ -319,3 +319,19 @@ body {
   li          { list-style-type: disc !important; }
 
 }
+
+/* ===== 모바일 타이포 + 여백 미세 조정 ===== */
+@media (max-width: 768px) {
+
+  /* 1) 제목 크기 다시 키우기 (가로폭에 따라 부드럽게 조절) */
+  h1.title, .title.is-1 { font-size: clamp(2.0rem, 6vw, 2.4rem) !important; }
+  h2.title, .title.is-2 { font-size: clamp(1.75rem, 5vw, 2.0rem) !important; }
+  h3.title, .title.is-3 { font-size: clamp(1.5rem,  4vw, 1.75rem) !important; }
+
+  /* 2) 왼·오른쪽에 공백 확보 */
+  body { padding-left: 1rem; padding-right: 1rem; }
+
+  /* left-narrow 요소는 너무 붙지 않도록 0.5rem 여백만 유지 */
+  .left-narrow,
+  figure.left-narrow { margin-left: .5rem; margin-right: .5rem; }
+}
